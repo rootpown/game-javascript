@@ -1,11 +1,12 @@
-// const readline = require("node:readline");
-// const { stdin: input, stdout: output } = require("node:process");
-
-// const rl = readline.createInterface({ input, output });
+const readline = require("readline");
+const rl = readline.createInterface({
+  input: process.stdin,
+  output: process.stdout,
+});
 
 let playerResult = 0;
 let computerResult = 0;
-let gameResult = " ";
+let gameResult = "";
 
 function gameStart(playerSelection, computerSelection) {
   if (
@@ -50,14 +51,20 @@ function gameStart(playerSelection, computerSelection) {
     console.log("Invalid number selection");
   }
 }
-function gameEnd(computerSelection) {
-  let result = Math.floor(Math.random() * 2) + 1;
-  if (result === 1) {
-    computerSelection++;
-  }
+
+function printResult() {
+  console.log(`Player result: ${playerResult}`);
+  console.log(`Computer result: ${computerResult}`);
+  console.log(`Game result: ${gameResult}`);
 }
-rl.question("type: ", (logger) => {
-  console.log(`Thank you for your valuable feedback: ${logger}`);
+
+rl.question("Enter your choice (ROCK, PAPER, or SCISSORS): ", (input) => {
+  const playerSelection = input.toUpperCase;
+  const computerOptions = ["ROCK", "PAPER", "SCISSORS"];
+  const computerSelection =
+    computerOptions[Math.floor(Math.random() * computerOptions.length)];
+  gameStart(playerSelection, computerSelection);
+  printResult();
 
   rl.close();
 });
