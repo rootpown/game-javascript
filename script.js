@@ -41,7 +41,7 @@ function playGame() {
       gameStart(playerSelection, computerSelection);
 
       if (playerResult === 3 || computerResult === 3) {
-        console.log("game over");
+        console.log("Game Result: ", gameResult);
         rl.close();
       } else {
         printResult();
