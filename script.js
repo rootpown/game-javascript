@@ -59,7 +59,7 @@ function printResult() {
 }
 
 rl.question("Enter your choice (ROCK, PAPER, or SCISSORS): ", (input) => {
-  const playerSelection = input.toUpperCase;
+  const playerSelection = input.toUpperCase();
   const computerOptions = ["ROCK", "PAPER", "SCISSORS"];
   const computerSelection =
     computerOptions[Math.floor(Math.random() * computerOptions.length)];
