@@ -9,20 +9,21 @@ let playerResult = 0;
 let computerResult = 0;
 let gameResult = "";
 function gameStart(playerSelection, computerSelection) {
-  switch (true) {
-    case playerSelection === computerSelection:
-      gameResult = "draw";
-      break;
-    case (playerSelection === "ROCK" && computerSelection === "SCISSORS") ||
-      (playerSelection === "PAPER" && computerSelection === "ROCK") ||
-      (playerSelection === "SCISSORS" && computerSelection === "PAPER"):
-      playerResult++;
-      gameResult = "You Won!";
-      break;
-    default:
-      computerResult++;
-      gameResult = "You Lost!";
-      break;
+  if (!["ROCK", "PAPER", "SCISSORS"].includes(playerSelection)) {
+    throw new Error("Invalid input. Please enter ROCK, PAPER, or SCISSORS.");
+  }
+  if (playerSelection === computerSelection) {
+    gameResult = "draw";
+  } else if (
+    (playerSelection === "ROCK" && computerSelection === "SCISSORS") ||
+    (playerSelection === "PAPER" && computerSelection === "ROCK") ||
+    (playerSelection === "SCISSORS" && computerSelection === "PAPER")
+  ) {
+    playerResult++;
+    gameResult = "You Won!";
+  } else {
+    computerResult++;
+    gameResult = "You Lost!";
   }
 }
 function printResult() {
@@ -32,17 +33,22 @@ function printResult() {
 }
 function playGame() {
   rl.question("Enter your choice (ROCK, PAPER, or SCISSORS): ", (input) => {
-    const playerSelection = input.toUpperCase();
-    const computerOptions = ["ROCK", "PAPER", "SCISSORS"];
-    const computerSelection =
-      computerOptions[Math.floor(Math.random() * computerOptions.length)];
-    gameStart(playerSelection, computerSelection);
+    try {
+      const playerSelection = input.toUpperCase();
+      const computerOptions = ["ROCK", "PAPER", "SCISSORS"];
+      const computerSelection =
+        computerOptions[Math.floor(Math.random() * computerOptions.length)];
+      gameStart(playerSelection, computerSelection);
 
-    if (playerResult === 3 || computerResult === 3) {
-      console.log("game over");
-      rl.close();
-    } else {
-      printResult();
+      if (playerResult === 3 || computerResult === 3) {
+        console.log("game over");
+        rl.close();
+      } else {
+        printResult();
+        playGame();
+      }
+    } catch (error) {
+      console.error(error.message);
       playGame();
     }
   });
