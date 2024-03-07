@@ -6,3 +6,7 @@
 cd /rock-paper-scissors
 node script.js
 ```
+
+# link
+
+- https://rootpown.github.io/game-javascript/
