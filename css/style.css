@@ -5,25 +5,27 @@
   margin: 0;
 }
 body {
-  background: rgb(224, 227, 99);
+  background: rgb(26, 164, 155);
   background: -moz-linear-gradient(
     90deg,
-    rgba(224, 227, 99, 1) 0%,
-    rgba(247, 174, 0, 1) 35%,
-    rgba(252, 228, 84, 1) 100%
+    rgba(26, 164, 155, 1) 0%,
+    rgba(218, 17, 43, 1) 49%,
+    rgba(173, 198, 48, 1) 100%
   );
   background: -webkit-linear-gradient(
     90deg,
-    rgba(224, 227, 99, 1) 0%,
-    rgba(247, 174, 0, 1) 35%,
-    rgba(252, 228, 84, 1) 100%
+    rgba(26, 164, 155, 1) 0%,
+    rgba(218, 17, 43, 1) 49%,
+    rgba(173, 198, 48, 1) 100%
   );
   background: linear-gradient(
     90deg,
-    rgba(224, 227, 99, 1) 0%,
-    rgba(247, 174, 0, 1) 35%,
-    rgba(252, 228, 84, 1) 100%
+    rgba(26, 164, 155, 1) 0%,
+    rgba(218, 17, 43, 1) 49%,
+    rgba(173, 198, 48, 1) 100%
   );
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#1aa49b",endColorstr="#adc630",GradientType=1);
+
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#e0e363",endColorstr="#fce454",GradientType=1);
 }
 .wrapper {
@@ -39,7 +41,7 @@ body {
 .wrapper-header {
   font-size: 44px;
   letter-spacing: 1.3rem;
-  color: rgb(252, 252, 252);
+  color: rgba(252, 252, 252, 0.479);
 }
 .wrapper-list {
   margin-top: 4.3rem;
@@ -48,9 +50,14 @@ body {
   justify-content: space-around;
 }
 .wrapper-list img {
-  width: 200px;
-  height: 200px;
+  transition: all 0.4s;
+  width: 150px;
+  height: 150px;
   border-radius: 1.3rem;
+  -webkit-transition: all 0.4s;
+  -moz-transition: all 0.4s;
+  -ms-transition: all 0.4s;
+  -o-transition: all 0.4s;
 }
 .wrapper-list-left {
   display: flex;
@@ -75,4 +82,22 @@ body {
   -moz-border-radius: 1.3rem;
   -ms-border-radius: 1.3rem;
   -o-border-radius: 1.3rem;
+}
+#game-result {
+  font-size: 66px;
+  margin-top: 3.4rem;
+  color: rgba(255, 255, 255, 0.356);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.wrapper-list-left img:hover {
+  transition: all 0.4s;
+  width: 200px;
+  height: 200px;
+  -webkit-transition: all 0.4s;
+  -moz-transition: all 0.4s;
+  -ms-transition: all 0.4s;
+  -o-transition: all 0.4s;
 }
