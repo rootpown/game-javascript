@@ -25,10 +25,8 @@ function playRound(playerSelection) {
     (playerSelection === "SCISSORS" && computerSelection === "PAPER")
   ) {
     playerResult++;
-    gameResult = "You Won!";
   } else {
     computerResult++;
-    gameResult = "You Lost!";
   }
 
   gameResultation();
@@ -50,5 +48,4 @@ function gameResultation() {
     computerResult = 0;
   }
 }
-
 gameStart();
